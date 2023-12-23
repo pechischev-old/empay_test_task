@@ -23,6 +23,7 @@ dependencies:
 
   # ui
   gap: 3.0.1
+  material_segmented_control: 5.0.0
   cupertino_icons: 1.0.2
 
 dev_dependencies:
