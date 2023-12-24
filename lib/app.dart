@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'navigation/task_list_screen.dart';
 import 'config/themes.dart';
-import 'repository/task_repository.dart';
+import 'domain/task/repository.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -11,7 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider(
-      create: (context) => TaskRepository(),
+      create: (context) => TaskRepository()..init(),
       child: MaterialApp(
         title: 'ToDo List',
         theme: lightTheme,

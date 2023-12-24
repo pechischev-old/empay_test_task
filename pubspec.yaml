@@ -26,6 +26,9 @@ dependencies:
   material_segmented_control: 5.0.0
   cupertino_icons: 1.0.2
 
+  # utils
+  uuid: 4.2.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
