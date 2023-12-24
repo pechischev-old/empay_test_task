@@ -8,6 +8,7 @@ class TaskRepository {
   void init() {
     // set mock data
     source.addAll([
+      Task(id: uuidGenerator.v4(), title: 'Think a task', completed: true),
       Task(id: uuidGenerator.v4(), title: 'Write a task'),
       Task(id: uuidGenerator.v4(), title: 'Complete a task'),
     ]);

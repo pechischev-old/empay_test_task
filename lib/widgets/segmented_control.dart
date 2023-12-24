@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:material_segmented_control/material_segmented_control.dart';
 
-class SegmentedControl extends StatelessWidget {
-  final List<String> segments;
-  final String selectedSegment;
-  final Function(String) onTap;
+class SegmentedControl<T> extends StatelessWidget {
+  final List<T> segments;
+  final T selectedSegment;
+  final Function(T) onTap;
 
   const SegmentedControl({
     super.key,
@@ -19,7 +19,7 @@ class SegmentedControl extends StatelessWidget {
     final theme = Theme.of(context);
 
     return MaterialSegmentedControl(
-      children: Map.fromIterable(segments,  value: (item) => Text(item)),
+      children: Map.fromIterable(segments, value: (item) => Text(item.toString())),
       selectionIndex: selectedSegment,
       borderColor: Colors.grey,
       selectedColor: theme.primaryColor,

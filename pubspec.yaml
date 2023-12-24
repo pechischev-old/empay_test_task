@@ -42,6 +42,8 @@ dev_dependencies:
   freezed: 2.4.5
   json_serializable: 6.7.1
 
+  # cli
+  elementary_cli:
 
 flutter:
   uses-material-design: true
