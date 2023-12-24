@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:empay_test/navigation/task_view_sheet.dart';
 import 'package:empay_test/widgets/segmented_control.dart';
+
+import 'task_form_sheet.dart';
 
 class TaskListScreen extends StatelessWidget {
   const TaskListScreen({super.key});
@@ -16,7 +19,7 @@ class TaskListScreen extends StatelessWidget {
               child: SegmentedControl(
                 selectedSegment: 'Active',
                 segments: const ['Active', 'Completed'],
-                onTap: (String value) {  }, // TODO: change segment
+                onTap: (String value) {}, // TODO: change segment
               ),
             ),
             Expanded(
@@ -32,7 +35,7 @@ class TaskListScreen extends StatelessWidget {
                       onPressed: () {}, // TODO: remove task
                       icon: const Icon(Icons.delete),
                     ),
-                    onTap: () {}, // TODO: open edit task bottom sheet
+                    onTap: () => TaskViewSheet.show(context),
                   );
                 },
                 itemCount: 4,
@@ -42,7 +45,7 @@ class TaskListScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {}, // TODO: open add task bottom sheet
+        onPressed: () => TaskFormSheet.show(context),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

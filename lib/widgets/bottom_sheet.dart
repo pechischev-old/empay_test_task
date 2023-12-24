@@ -42,9 +42,7 @@ class BottomSheetModal extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                left: 16,
                 top: 24,
-                right: 16,
               ),
               child: appbar,
             ),
@@ -67,14 +65,18 @@ class BottomSheetModal extends StatelessWidget {
 
 class BottomSheetNavigationBar extends StatelessWidget {
   final String? title;
+  final String? leading;
   final String? trailing;
-  final GestureTapCallback? onClose;
+  final GestureTapCallback? onLeadingTap;
+  final GestureTapCallback? onTrailingTap;
 
   const BottomSheetNavigationBar({
     super.key,
     this.title,
+    this.leading,
     this.trailing,
-    this.onClose,
+    this.onTrailingTap,
+    this.onLeadingTap,
   });
 
   @override
@@ -82,6 +84,19 @@ class BottomSheetNavigationBar extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
+        if (leading != null)
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton(
+              onPressed: () {
+                onLeadingTap?.call();
+              },
+              child: Text(
+                leading!,
+                style: const TextStyle(fontSize: 16),
+              ),
+            ),
+          ),
         if (title != null)
           Text(
             title!,
@@ -92,9 +107,7 @@ class BottomSheetNavigationBar extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () {
-                if (onClose != null) {
-                  onClose!();
-                }
+                onTrailingTap?.call();
                 Navigator.maybePop(context);
               },
               child: Text(
