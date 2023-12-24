@@ -41,4 +41,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Flutter version manager
 /.fvm
+
+# Exclude generic files
+**/*/*.g.dart
+**/*/*.freezed.dart
+*.gen.dart
