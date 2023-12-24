@@ -45,16 +45,18 @@ class TaskListScreen extends ElementaryWidget<TaskListWidgetModel> {
                         itemBuilder: (BuildContext context, int index) {
                           final task = filteredTasks[index];
                           return ListTile(
+                            key: ValueKey(task.id),
                             title: Text(task.title),
                             leading: Checkbox(
                               value: task.completed,
-                              onChanged: (value) => wm.updateTaskStatus(),
+                              onChanged: (value) =>
+                                  wm.updateTaskStatus(task, value ?? task.completed),
                             ),
                             trailing: IconButton(
-                              onPressed: () => wm.handleDeleteTask(),
+                              onPressed: () => wm.handleDeleteTask(task),
                               icon: const Icon(Icons.delete),
                             ),
-                            onTap: () => wm.handleTapOnTask(),
+                            onTap: () => wm.handleTapOnTask(task),
                           );
                         },
                         itemCount: filteredTasks.length,

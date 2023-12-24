@@ -1,24 +1,29 @@
+import 'package:empay_test/domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:empay_test/widgets/bottom_sheet.dart';
 import 'package:gap/gap.dart';
 
 class TaskViewSheet extends StatelessWidget {
-  const TaskViewSheet({super.key});
+  final Task task;
+
+  const TaskViewSheet({super.key, required this.task});
 
   @override
   Widget build(BuildContext context) {
     return _Content();
   }
 
-  static void show(BuildContext context) {
-    const BottomSheetModal(
-      appbar: BottomSheetNavigationBar(
+  static void show(BuildContext context, Task task) {
+    BottomSheetModal(
+      appbar: const BottomSheetNavigationBar(
         leading: 'Edit',
         title: 'View detail',
         trailing: 'Close',
       ),
       shrink: true,
-      child: TaskViewSheet(),
+      child: TaskViewSheet(
+        task: task,
+      ),
     ).show(context);
   }
 }

@@ -15,7 +15,7 @@ class TaskRepository {
   }
 
   Future<List<Task>> getTasks() async {
-    return source;
+    return source.toList();
   }
 
   Future<void> createTask(Task task) async {

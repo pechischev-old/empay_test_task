@@ -20,11 +20,12 @@ class TaskListWidgetModel extends WidgetModel<TaskListScreen, TaskListModel> {
 
   void selectSegment(SegmentType value) => _selectedSegment.value = value;
 
-  void handleTapOnTask() => TaskViewSheet.show(context);
+  void handleTapOnTask(Task task) => TaskViewSheet.show(context, task);
 
-  void updateTaskStatus() {}
+  void updateTaskStatus(Task task, bool statusValue) =>
+      model.updateTask(task.copyWith(completed: statusValue));
 
-  void handleDeleteTask() {}
+  void handleDeleteTask(Task task) => model.deleteTask(task);
 
   void handleCreateTask() => TaskFormSheet.show(context);
 
