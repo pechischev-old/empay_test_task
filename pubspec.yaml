@@ -25,6 +25,7 @@ dependencies:
   gap: 3.0.1
   material_segmented_control: 5.0.0
   cupertino_icons: 1.0.2
+  bottom_sheet: 4.0.0
 
   # utils
   uuid: 4.2.2
