@@ -1,16 +1,16 @@
 # empay_test
 
-A new Flutter project.
+Тестовое задание в компанию Empay
 
-## Getting Started
+Суть приложения: Todo лист с созданием, просмотром и редактированием задач
 
-This project is a starting point for a Flutter application.
+## Pre build
 
-A few resources to get you started if this is your first Flutter project:
+Команда для генерации схем в моделях `dart run build_runner build`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Принятые решения
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Получение данных задач напрямую из блока вместо прокидывания через модель Elementary
+  - Только блок является источником актуальных данных. Не стал дублировать данные в TaskSheetWidgetModel (как в примере из [доклада](https://habr.com/ru/companies/surfstudio/articles/667272/))
+- Task sheet оставлен переусложненным (как в задании) для демонстрации работы с elementary
+  - По-хорошему стоит разделить на боттом шиты view и form для разделения ответственности, но тогда Elementary не потребуется, потому что это будут очень простые виджеты
